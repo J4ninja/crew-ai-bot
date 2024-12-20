@@ -13,6 +13,6 @@ module.exports = {
     await interaction.reply("https://tenor.com/view/dice-roll-dice-roll-the-dice-cube-game-gif-6495545147822062773");
     setTimeout(async () => {
         await interaction.editReply(selected);
-      }, 2000); // 2000ms = 2 seconds
+      }, 2000); // 3000ms = 2 seconds
   },
 };
