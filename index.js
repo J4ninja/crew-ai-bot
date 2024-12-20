@@ -8,8 +8,8 @@ const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits
 
 client.commands = getCommands("./commands");
 
-client.once(Events.ClientReady, (c) => {
-    registerCommands();
+client.once(Events.ClientReady, async (c) => {
+    await registerCommands();
     console.log(`${c.user.tag} is online.`);
 });
 
