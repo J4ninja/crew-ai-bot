@@ -69,5 +69,26 @@ const quotes = [
     insertData.run(quote.text, quote.author);
   })
 
-  
+  // Create games table if it doesn't exist
+const createGamesTableQuery = `
+CREATE TABLE IF NOT EXISTS games
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title STRING
+)
+`;
+
+db.exec(createGamesTableQuery);
+
+// Insert initial games
+const games = [
+    "League of Legends", "Helldivers", "Balatro", 
+    "Brawl", "Jackbox", "Fortnite",
+    "Ravenswatch", "V Rising", "Black ops 6"
+];
+
+const insertGame = db.prepare("INSERT INTO games (title) VALUES (?)");
+for (const game of games) {
+    insertGame.run(game);
+}
   
