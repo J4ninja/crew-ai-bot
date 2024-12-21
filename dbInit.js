@@ -4,12 +4,14 @@ const db = new Database("database.db");
 
 const query = `
 
+DROP TABLE IF EXISTS quotes;
+
 CREATE TABLE IF NOT EXISTS quotes
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    text STRING,
+    text STRING UNIQUE,
     author STRING
-    )
+    );
 `
 
 db.exec(query);
@@ -71,10 +73,11 @@ const quotes = [
 
   // Create games table if it doesn't exist
 const createGamesTableQuery = `
+DROP TABLE IF EXISTS games;
 CREATE TABLE IF NOT EXISTS games
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title STRING
+    title STRING UNIQUE
 )
 `;
 
