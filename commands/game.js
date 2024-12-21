@@ -6,7 +6,7 @@ const db = new Database("database.db");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("games")
-    .setDescription("Picks out the game to play from game list.")
+    .setDescription("Picks out the game to play from game list. You can also add or remove games from the list.")
     .addStringOption(option =>
       option.setName("addgame")
         .setDescription("Add a game to the list")
