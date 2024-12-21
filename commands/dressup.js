@@ -37,6 +37,7 @@ module.exports = {
         const imageUrl = response.data[0].url;
   
         await interaction.editReply({
+            content: `The crew wearing ${outfit}`,
             files: [{
                 attachment: imageUrl,
                 name: "generatedCrew.png"
