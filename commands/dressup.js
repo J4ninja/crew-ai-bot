@@ -29,7 +29,7 @@ module.exports = {
           model: "dall-e-2",
           image: fs.createReadStream(imagePath),
           mask: fs.createReadStream(maskPath),
-          prompt: `12 individuals wearing ${outfit}. Don't generate more people than heads in image.`,
+          prompt: `12 individuals wearing ${outfit}. Only 12 individuals faces are visible in the image. No one else squatting below or in the background.`,
           n: 1,
           size: "1024x1024",
         });
