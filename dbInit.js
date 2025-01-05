@@ -95,3 +95,27 @@ for (const game of games) {
     insertGame.run(game);
 }
   
+const membersQuery = `
+DROP TABLE IF EXISTS members;
+
+CREATE TABLE IF NOT EXISTS members
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name STRING UNIQUE,
+    facts TEXT
+);
+`;
+
+db.exec(membersQuery);
+
+const members = [
+    "John", "Steve", "Alex", "Arthur", "Jacob", 
+    "Sthefany", "Emma", "Christian", "Tony", "Joseph", 
+    "Rafael", "Keira", "Phuong"
+];
+
+const insertMember = db.prepare('INSERT INTO members (name) VALUES (?)');
+
+members.forEach(member => {
+    insertMember.run(member);
+});
