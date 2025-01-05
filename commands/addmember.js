@@ -15,7 +15,7 @@ module.exports = {
     const name = interaction.options.getString("name");
 
     const insert = db.prepare("INSERT INTO members (name) VALUES (?)");
-    insert.run(text, author);
+    insert.run(name);
 
     await interaction.reply(`Member added: "${name}"`);
   },
